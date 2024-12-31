@@ -2,7 +2,7 @@
 # <span style="color:#6495ED">***Go Lang***</span>
 
 
-![!alt text](images/Go_Logo_Blue.png)
+![alt text](/images/Go_Logo_Blue.png)
 
 Below Note cover the Go Language Base Fundamentals
 
@@ -619,7 +619,7 @@ and synchronize their actions. This design makes it straightforward to express c
 the development of highly concurrent and scalable systems.
 
 
-![!alt text](images/go_package.png)
+![!alt text](/images/go_package.png)
 
 <a id="13-command-line-reference"></a>
 ## <span style="color:#6495ED"> 13. Command Line Reference
