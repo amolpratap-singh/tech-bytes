@@ -1,5 +1,5 @@
 
-# <span style="color:#6495ED">***Go Lang***</span>
+# <span style="color:#6495ED">**Go Lang Basic Concept**</span>
 
 
 ![alt text](/images/go_lang.png)
