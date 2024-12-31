@@ -2,7 +2,7 @@
 # <span style="color:#6495ED">***Go Lang***</span>
 
 
-![alt text](/images/Go_Logo_Blue.png)
+![alt text](/images/go_lang.png)
 
 Below Note cover the Go Language Base Fundamentals
 
