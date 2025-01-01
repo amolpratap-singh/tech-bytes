@@ -16,7 +16,7 @@ func Sum(numbers []int) int {
 func SumAll(numbersToSum ...[]int) []int {
 	lengthOfNumbers := len(numbersToSum)
 	sum := make([]int, lengthOfNumbers)
-	fmt.Println("Input got and constructed %v ", sum)
+	fmt.Printf("Input got and constructed %v", sum)
 	for i, numbers := range numbersToSum {
 		sum[i] = Sum(numbers)
 	}

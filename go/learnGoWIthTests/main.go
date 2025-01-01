@@ -27,6 +27,6 @@ func main() {
 	arr1 := []int{1, 2, 3}
 	arr2 := []int{4, 5, 6}
 
-	fmt.Println("Go the sum of two array %v \n. ", array.SumAll(arr1, arr2))
+	fmt.Printf("Go the sum of two array %v \n. ", array.SumAll(arr1, arr2))
 
 }
