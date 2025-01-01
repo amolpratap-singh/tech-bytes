@@ -1,8 +1,5 @@
 package array
 
-import "fmt"
-
-
 func Sum(numbers []int) int {
 	sumNumber := 0
 
@@ -16,10 +13,32 @@ func Sum(numbers []int) int {
 func SumAll(numbersToSum ...[]int) []int {
 	lengthOfNumbers := len(numbersToSum)
 	sum := make([]int, lengthOfNumbers)
-	fmt.Printf("Input got and constructed %v", sum)
 	for i, numbers := range numbersToSum {
 		sum[i] = Sum(numbers)
 	}
 	return sum
+}
 
+func SumAllSlice(numbersToSum ...[]int) []int {
+	var sums []int
+
+	for _, number := range numbersToSum {
+		sums = append(sums, Sum(number))
+	}
+	return sums
+}
+
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int 
+
+	for _, number := range numbersToSum {
+
+		if len(number) == 0 {
+			sums = append(sums, 0)
+		} else {
+			sums = append(sums, Sum(number[1:]))
+		}
+	}
+
+	return sums
 }
