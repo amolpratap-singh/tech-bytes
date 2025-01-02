@@ -539,6 +539,7 @@ func main() {
 ## <span style="color:#6495ED"> 9. Structs & Interfaces
 
 * A struct is a type of data structure which is collection of same or different properties that are related together.
+* A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
 * A struct is a type that contains named fields. 
 
 
@@ -562,6 +563,19 @@ func main() {
 ```
 
 ### 9.1 Methods and Embedded Types
+
+A method is a function with a receiver. A method declaration binds an identifier, the method name, to a method, and associates the method with the receiver's base type.
+
+```go
+func (p *Point) Length() float64 {
+	return math.Sqrt(p.x * p.x + p.y * p.y)
+}
+
+func (p *Point) Scale(factor float64) {
+	p.x *= factor
+	p.y *= factor
+}
+```
 
 ### 9.2. Interface
 

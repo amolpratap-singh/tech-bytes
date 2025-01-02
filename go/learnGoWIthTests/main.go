@@ -9,6 +9,12 @@ import (
 	iteration "learnGoWithTest/internal/iteration"
 )
 
+type Employee struct {
+	Name string
+	Age int
+	Salary float64
+}
+
 func main() {
 	fmt.Println("Learn Go with TDD [Test Driven Development]")
 
@@ -29,4 +35,18 @@ func main() {
 
 	fmt.Printf("Go the sum of two array %v \n. ", array.SumAll(arr1, arr2))
 
+	employee1 := Employee{
+		Name: "amolpratap singh",
+		Age: 29,
+		Salary: 100000000,
+	}
+
+	employee2 := Employee{
+		Name: "rajesh singh",
+		Age: 56,
+		Salary: 123456889.01,
+	}
+
+	fmt.Printf("Employee 1 detail : %v", employee1)
+	fmt.Printf("Employee 2 detail : %v", employee2)
 }
