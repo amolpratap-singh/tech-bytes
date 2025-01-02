@@ -50,7 +50,7 @@ func main() {
 	employee3 := Employee{}
 
 	fmt.Printf("Employee 1 detail : %v \n", employee1)
-	fmt.Printf("Employee 2 detail : %v \n", *(&employee2.Age))
+	fmt.Printf("Employee 2 detail : %v \n", employee2)
 	fmt.Printf("Employee 3 detail : %v \n", employee3)
 
 	goku := &Employee{"Ravi", 10, 10.0}
