@@ -285,6 +285,7 @@ slice2 := make([]int, 2)
 copy(slice2, slice1)
 fmt.Println(slice1, slice2)
 ```
+Reference Link: https://go.dev/blog/slices-intro
 
 <a id="6-map"></a>
 ## <span style="color:#6495ED"> 6. Map
