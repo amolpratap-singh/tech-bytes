@@ -33,7 +33,7 @@ func main() {
 	arr1 := []int{1, 2, 3}
 	arr2 := []int{4, 5, 6}
 
-	fmt.Printf("Go the sum of two array %v \n. ", array.SumAll(arr1, arr2))
+	fmt.Printf("Go the sum of two array %v \n.", array.SumAll(arr1, arr2))
 
 	employee1 := Employee{
 		Name: "amolpratap singh",
@@ -47,6 +47,17 @@ func main() {
 		Salary: 123456889.01,
 	}
 
-	fmt.Printf("Employee 1 detail : %v", employee1)
-	fmt.Printf("Employee 2 detail : %v", employee2)
+	employee3 := Employee{}
+
+	fmt.Printf("Employee 1 detail : %v \n", employee1)
+	fmt.Printf("Employee 2 detail : %v \n", *(&employee2.Age))
+	fmt.Printf("Employee 3 detail : %v \n", employee3)
+
+	goku := &Employee{"Ravi", 10, 10.0}
+	goku.EmployeeInfo()
+	fmt.Printf("Employee age for 4: %v \n", goku.Age)
+}
+
+func (employee *Employee) EmployeeInfo() {
+	employee.Age += 30
 }
