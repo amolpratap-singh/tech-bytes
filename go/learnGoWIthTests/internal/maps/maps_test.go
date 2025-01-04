@@ -54,6 +54,47 @@ func TestAdd(t *testing.T) {
 	})
 }
 
+func TestUpdate(t *testing.T) {
+	t.Run("Test case for update function with existing word", func(t *testing.T) {
+		word := "idiom"
+		definitation := "computer settings with affect"
+		dictionary := Dictionary{word: definitation}
+		newDefinitation := "new updated word"
+		dictionary.Update(word, newDefinitation)
+
+		assertDefinition(t, dictionary, word, newDefinitation)
+	})
+
+	t.Run("Test case for update function with new word", func(t *testing.T) {
+		dictionary := Dictionary{}
+		word := "test"
+		definitation := "this is just test"
+		err := dictionary.Update(word, definitation)
+
+		assertError(t, err, ErrWordDoesNotExist)
+	})
+}
+
+func TestDelete(t *testing.T) {
+	t.Run("Test case for delete function with existing word", func(t *testing.T) {
+		word := "test"
+		dictionary := Dictionary{word: "test definitation"}
+		dictionary.Delete(word)
+
+		_, err := dictionary.CustomSearch(word)
+		assertError(t, err, ErrNotFound)
+	})
+
+	t.Run("non-existing word", func(t *testing.T) {
+		word := "test"
+		dictionary := Dictionary{}
+
+		err := dictionary.Delete(word)
+
+		assertError(t, err, ErrWordDoesNotExist)
+	})
+}
+
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
 	t.Helper()
 
