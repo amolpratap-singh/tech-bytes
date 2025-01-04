@@ -32,20 +32,36 @@ func TestCustomSearch(t *testing.T) {
 }
 
 func TestAdd(t *testing.T) {
-	t.Run("Test case to add key in dicitionary", func(t *testing.T) {
+
+	t.Run("new word", func(t *testing.T) {
 		dictionary := Dictionary{}
-		dictionary.Add("idioms", "a common code pattern or practice specific to a programming language")
+		word := "test"
+		definition := "this is just a test"
+		err := dictionary.Add(word, definition)
 
-		got, err := dictionary.CustomSearch("idioms")
-		want := "a common code pattern or practice specific to a programming language"
-
-		if err != nil {
-			t.Fatal("Should find added word:", err)
-		}
-
-		assertStrings(t, got, want)
-
+		assertError(t, err, nil)
+		assertDefinition(t, dictionary, word, definition)
 	})
+
+	t.Run("existing word", func(t *testing.T) {
+		word := "test"
+		definition := "this is just a test"
+		dictionary := Dictionary{word: definition}
+		err := dictionary.Add(word, "new test")
+
+		assertError(t, err, ErrWordExists)
+		assertDefinition(t, dictionary, word, definition)
+	})
+}
+
+func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
+	t.Helper()
+
+	got, err := dictionary.CustomSearch(word)
+	if err != nil {
+		t.Fatal("should find added word:", err)
+	}
+	assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
