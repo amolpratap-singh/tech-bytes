@@ -1,11 +1,25 @@
 package mocking
 
 import (
-	"bytes"
 	"fmt"
+	"io"
+	"time"
 )
 
-func CountDown(out *bytes.Buffer) {
 
-	fmt.Fprint(out, "3")
+const finalWord = "Go!"
+const countdownStart = 3
+
+type Sleeper interface {
+	Sleep()
+}
+
+func CountDown(out io.Writer) {
+
+	for i := countdownStart; i > 0; i-- {
+		fmt.Fprintln(out, i)
+		time.Sleep(1 * time.Second)
+	}
+	fmt.Fprint(out, finalWord)
+
 }

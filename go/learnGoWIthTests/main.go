@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log"
+	//"log"
 	"net/http"
 	"os"
 	"strings"
@@ -11,6 +11,7 @@ import (
 	hello "learnGoWithTest/internal/hello_world"
 	injection "learnGoWithTest/internal/injection"
 	iteration "learnGoWithTest/internal/iteration"
+	mocking "learnGoWithTest/internal/mocking"
 )
 
 type Employee struct {
@@ -61,10 +62,12 @@ func main() {
 	goku.EmployeeInfo()
 	fmt.Printf("Employee age for 4: %v \n", goku.Age)
 
-	injection.Greet(os.Stdout, "Elodie")
+	injection.Greet(os.Stdout, "Elodie \n")
 
 	// Sample code of http server
-	log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
+	//log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
+
+	mocking.CountDown(os.Stdout)
 
 }
 
