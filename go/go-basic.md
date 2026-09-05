@@ -28,6 +28,8 @@ Below Note cover the Go Language Base Fundamentals
 <a id="1-introduction"></a>
 ## <span style="color:#6495ED">1. Introduction<span>
 
+Go is static type language.
+
 The Go toolset uses an environment variable called GOPATH to find Go source code.
 
 In Go Lang when go run command executed with the subsequent files (separated by spaces), it compiles them into an 
@@ -590,10 +592,15 @@ type Shape interface {
 
 ```
 
+* Interfaces are not generic types
+* Interfaces are 'implicit'
+* Interfaces are a contract to help us manage type
+* Interfaces are tough
+
 <a id="10-packages"></a>
 ## <span style="color:#6495ED"> 10. Packages
 
-* A package is a collection of source files.
+* A package is a collection of commons source code files.
 * Go programs are organized into packages
 * Go's standard library, provdides different core packages for us to use
 
@@ -978,7 +985,11 @@ Standarad Pkg Link https://pkg.go.dev/std
 <a id="17-qa"></a>
 ## <span style="color:#6495ED"> 17. QA
 
-#### 1. How do we run the code in our project ?
+#### 1. How do we run the go code in our project ?
+```
+To run the go code two alternatives one is the cli command where 
+we can execute go run main.go and the other one is to execute 
+```
 #### 2. What does 'package main' mean ?
 #### 3. What does 'import' "fmt" mean ?
 #### 4. Difference between println() and fmt.Println() ?
