@@ -24,6 +24,7 @@ docker images -q                    # Only image IDs
 ```
 
 **Example output:**
+
 ```
 $ docker images
 REPOSITORY          TAG       IMAGE ID       CREATED        SIZE
@@ -42,7 +43,8 @@ docker history new_myansible
 ```
 
 **Example output:**
-```
+
+```bash
 $ docker history new_myansible
 IMAGE               CREATED       CREATED BY                                      SIZE      COMMENT
 a0967c827609        2 days ago    /bin/bash                                       1.52kB    test image
@@ -60,6 +62,7 @@ docker rmi nginx                    # Remove image by name
 docker rmi <image-id>               # Remove image by ID
 docker rmi $(docker images -q)      # Remove all images
 ```
+
 ---
 
 ## 🚀 Containers — Lifecycle
@@ -102,7 +105,8 @@ docker container ls                 # Alternative syntax
 ```
 
 **Example output:**
-```
+
+```bash
 $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                    PORTS        NAMES
 ec046efb54f3   mongo     "docker-entrypoint.s…"   1 minute ago     Up About a minute         27017/tcp    epic_noyce
@@ -158,14 +162,16 @@ docker exec epic_noyce cat /etc/hosts
 ```
 
 **Example output:**
-```
+
+```bash
 $ docker exec ea45a0555a42 cat /etc/hosts
-127.0.0.1	localhost
-::1	localhost ip6-localhost ip6-loopback
-fe00::	ip6-localnet
-172.17.0.2	ea45a0555a42
+127.0.0.1         localhost
+::1	              localhost ip6-localhost ip6-loopback
+fe00::	          ip6-localnet
+172.17.0.2	      ea45a0555a42
 ```
 
+```bash
 # Get an interactive shell inside a running container
 docker exec -it <container-id> bash
 docker exec -it ea45a0555a42 bash
@@ -200,7 +206,8 @@ docker inspect <container-id>
 docker inspect ea45a0555a42
 ```
 
-**Example output (abridged):**
+**Example output:**
+
 ```json
 [
   {
@@ -233,7 +240,13 @@ docker port <container-name>        # Show port mappings
 docker port postgresdb
 ```
 
+**Example output:**
 
+```bash
+docker port postgresdb
+5432/tcp -> 0.0.0.0:5432
+5432/tcp -> [::]:5432
+```
 
 ### Resource Usage
 
@@ -252,8 +265,7 @@ docker stats <container>            # Specific container
 # Map specific host port to container port
 docker run -p <host_port>:<container_port> <image>
 docker run -p 8080:8000 amolpratap/nodeapp
-docker run -p 80:5000 kodekloud/simplewebapp
-docker run -p 8888:80 prakhar1989/static-site
+docker run -p 8888:80 amolpratap1995/static-site
 
 # Publish all exposed ports to random host ports
 docker run -d -P <image>
