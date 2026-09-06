@@ -29,7 +29,7 @@ $ docker images
 REPOSITORY          TAG       IMAGE ID       CREATED        SIZE
 nginx               latest    a6bd71f48f68   2 days ago     187MB
 redis               alpine    3900abf41552   5 days ago     37.8MB
-postgres            14        ceccf204b270   1 week ago     379MB
+postgres            14        1ea2be1a6338   1 week ago     379MB 
 ```
 
 ### Image History
@@ -77,7 +77,7 @@ docker run busybox echo "hello"     # Run and echo
 
 # Detached mode (background)
 docker run -d nginx                 # Run in background
-docker run -d -P --name static-site prakhar1989/static-site
+docker run -d -P --name static-site amolpratap1995/static-site
 #   -d    Detach terminal (run in background)
 #   -P    Publish all exposed ports to random host ports
 #   --name  Give container a custom name
@@ -155,10 +155,20 @@ docker system prune
 # Run a command in a running container
 docker exec <container> <command>
 docker exec epic_noyce cat /etc/hosts
+```
+
+**Example output:**
+```
+$ docker exec ea45a0555a42 cat /etc/hosts
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::	ip6-localnet
+172.17.0.2	ea45a0555a42
+```
 
 # Get an interactive shell inside a running container
 docker exec -it <container-id> bash
-docker exec -it ec046efb54f3 bash
+docker exec -it ea45a0555a42 bash
 docker exec -it <container-id> sh       # Use sh if bash is unavailable
 docker exec -it <container-id> zsh      # Or zsh, powershell, etc.
 
@@ -187,25 +197,29 @@ Returns full container details in JSON format — state, config, network, mounts
 
 ```bash
 docker inspect <container-id>
-docker inspect 650bfc71aa24
+docker inspect ea45a0555a42
 ```
 
 **Example output (abridged):**
 ```json
 [
   {
-    "Id": "650bfc71aa248a565579947d7e3042d126f96f7551ee1436d8e54edd0d4a8c21",
-    "Created": "2020-08-02T20:18:08.469910787Z",
+    "Id": "ea45a0555a42893a2ff84a55db8c3a03d6d4fb385e282a671c1495e986a872cb",
+    "Created": "2025-12-31T09:00:37.619666009Z",
     "Path": "/bin/bash",
     "State": {
-      "Status": "exited",
-      "Running": false,
-      "Paused": false,
-      "OOMKilled": false,
-      "ExitCode": 0,
-      "StartedAt": "2020-08-02T20:18:15.890106744Z",
-      "FinishedAt": "2020-08-02T20:18:15.93311291Z"
-    }
+        "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 673,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-05T07:48:59.674446254Z",
+            "FinishedAt": "2026-09-05T07:16:27.596416877Z"
+        }
   }
 ]
 ```
@@ -216,8 +230,10 @@ docker inspect 650bfc71aa24
 
 ```bash
 docker port <container-name>        # Show port mappings
-docker port static-site
+docker port postgresdb
 ```
+
+
 
 ### Resource Usage
 
