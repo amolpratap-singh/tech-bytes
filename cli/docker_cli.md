@@ -303,3 +303,47 @@ graph TB
 ```bash
 # List all networks
 docker network ls
+
+# Create a custom network
+docker network create --driver bridge --subnet 182.18.0.0/16 custom-isolated-network
+
+# Run container on custom network
+docker run --network=custom-isolated-network nginx
+
+# Inspect network
+docker network inspect bridge
+```
+
+### Docker Embedded DNS
+
+Docker has a built-in DNS server that allows containers to resolve each other by name.
+
+```
+┌─────────────────────────────────┐
+│         Docker Host             │
+│                                 │
+│  ┌──────────┐    ┌──────────┐   │
+│  │ web-app  │    │ database │   │
+│  │172.17.0.2│    │172.17.0.3│   │
+│  └────┬─────┘    └────┬─────┘   │
+│       │               │         │
+│       └────  DNS  ────┘         │
+│    (resolves by container name) │
+│                                 │
+│  DNS Server: 127.0.0.11         │
+└─────────────────────────────────┘
+```
+
+> **Note:** Containers can reach each other using their names. Docker's built-in DNS server always runs at `127.0.0.11` inside containers. System DNS runs at `127.0.0.1`.
+
+### Linking Containers (Legacy)
+
+```bash
+# Link containers by name (deprecated — use networks instead)
+docker run -d --name=redis redis
+docker run -d --name=vote -p 5000:80 --link redis:redis voting-app
+docker run -d --name=result -p 5001:80 --link db:db result-app
+docker run -d --name=worker --link db:db --link redis:redis worker
+```
+
+---
