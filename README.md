@@ -11,8 +11,6 @@ Tech-Byte is a comprehensive, developer-focused knowledge repository designed to
 
 ---
 
----
-
 ## 📚 Repository Structure
 
 ```text
@@ -39,8 +37,6 @@ tech-byte/
 ├── 🔧 scripts/          Validation & index generation utilities
 └── 📄 docs/             Repository documentation & guides
 ```
-
----
 
 ---
 
