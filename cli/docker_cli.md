@@ -913,8 +913,8 @@ HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
 
 ## 🔗 Related Topics
 
-- [🧰 CLI Command Center](../) — All CLI tool references
-- [🚀 DevOps — Docker](../../devops/docker/) — Docker in DevOps workflows
+- [🧰 CLI Command Center](../cli/README.md) — All CLI tool references
+- [🚀 DevOps — Docker](../devops/docker/) — Docker in DevOps workflows
 - [🐛 Troubleshooting — Docker](../../troubleshooting/docker/) — Docker debugging guides
 - [kubectl](../kubectl/) — Kubernetes container orchestration
 - [Helm](../helm/) — Kubernetes package management
