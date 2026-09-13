@@ -538,7 +538,7 @@ curl --connect-to api.example.com:443:10.0.0.1:443 https://api.example.com
 
 ## 🔗 Related Topics
 
-- [🧰 CLI Command Center](../cli/README.md) — All CLI tool references
+- [🧰 CLI Command Center](../) — All CLI tool references
 - [jq](../jq/) — JSON processing for API responses
 - [SSH](../ssh/) — Secure tunneling for API access
 - [Networking](../networking/) — DNS, connectivity debugging
